@@ -1,5 +1,3 @@
-import java.nio.file.Paths;
-
 class Parser {
     public String commandName;
     public String[] args;

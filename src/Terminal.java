@@ -51,6 +51,16 @@ public class Terminal extends Parser {
             System.out.println("Nothing to delete");
         }
     }
+    public void cat(String file) throws IOException{
+        FileWriter Wfile=new FileWriter(file);
+        Scanner myReader = new Scanner(file);
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            Wfile.write(data);
+      }
+        myReader.close();
+        Wfile.close();
+    }
     // ... //This method will choose the suitable command method to be called
     public void chooseCommandAction(){}
 

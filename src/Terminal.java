@@ -43,6 +43,14 @@ public class Terminal extends Parser {
         myReader.close();
         Wfile.close();
     }
+    public void rm(String FileName){
+        File file=new File(FileName);
+        if(file.exists()){
+            file.delete();
+        }else{
+            System.out.println("Nothing to delete");
+        }
+    }
     // ... //This method will choose the suitable command method to be called
     public void chooseCommandAction(){}
 

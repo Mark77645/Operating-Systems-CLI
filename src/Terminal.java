@@ -15,14 +15,22 @@ public class Terminal extends Parser {
     }
 
     //Implement each command in a method, for example:
-    public void echo(String[] argument) {
+    public void echo(String[] argument) { ;
 
-        System.out.println();
+        for (int i = 0 ; i<argument.length;i++){
+            System.out.print(argument[i]);
+            if(i==argument.length-1){
+                break;
+            }
+            System.out.print(" ");
+        }
+        System.out.print("\n");
     }
 
     public void pwd() {
         Path currentDir = Paths.get("");
         System.out.println(currentDir.toAbsolutePath().toString());
+        System.out.print("\n");
     }
 
     public void cd(String[] args) {

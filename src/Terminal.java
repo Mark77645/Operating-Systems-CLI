@@ -15,11 +15,10 @@ public class Terminal extends Parser {
     }
 
     //Implement each command in a method, for example:
-    public void echo(String[] argument) { ;
-
-        for (int i = 0 ; i<argument.length;i++){
+    public void echo(String[] argument) {
+        for (int i = 0; i < argument.length; i++) {
             System.out.print(argument[i]);
-            if(i==argument.length-1){
+            if (i == argument.length - 1) {
                 break;
             }
             System.out.print(" ");
@@ -91,6 +90,15 @@ public class Terminal extends Parser {
         writeFile.close();
     }
 
+    public void mkdir(String[] fileName) {
+        for (int i = 0; i < fileName.length; i++) {
+            boolean file = new File(fileName[i]).mkdir();
+            if (i == fileName.length - 1) {
+                break;
+            }
+        }
+    }
+
     public void rm(String FileName) {
 
         File file = new File(FileName);
@@ -133,6 +141,10 @@ public class Terminal extends Parser {
                 break;
             case "touch":
                 break;
+            case "mkdir":
+                System.out.println(this.parser.getArgs());
+                mkdir(this.parser.getArgs());
+                break;
 
         }
     }
@@ -146,13 +158,12 @@ public class Terminal extends Parser {
         while (flag) {
 
             _command = input.nextLine();
-            if(_command.equals("exit")){
-                flag=false;
+            if (_command.equals("exit")) {
+                flag = false;
                 break;
             }
             terminal.parser.parse(_command);
             terminal.chooseCommandAction();
-
 
 
         }

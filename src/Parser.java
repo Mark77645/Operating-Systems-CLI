@@ -17,7 +17,7 @@ class Parser {
             args[i-1]=arr[i];
         }
         //System.out.println(commandName+" "+args.toString());
-    return true;
+        return true;
     }
     public String getCommandName() {
         return commandName;
@@ -25,5 +25,9 @@ class Parser {
 
     public String[] getArgs() {
         return args;
+    }
+    public void clear(){
+        commandName="";
+        args=null;
     }
 }
